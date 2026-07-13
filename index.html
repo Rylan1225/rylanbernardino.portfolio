@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rylan R. Bernardino — AI Automation Specialist</title>
+<meta name="description" content="Rylan R. Bernardino — Freelance AI Automation Specialist working in n8n, with a background in web development, building toward AI engineering.">
+
+<!--
+  ============================================================
+  TODO before publishing — replace these placeholders:
+  1. Hero avatar: swap the placeholder avatar block (search "PLACEHOLDER: PHOTO") for a real <img>.
+  2. Projects section: replace the 3 example cards with real case studies (search "PLACEHOLDER: PROJECT").
+  3. Certifications: replace the 3 example cards with real certifications (search "PLACEHOLDER: CERT").
+  4. Contact: replace your.email@example.com, github.com/yourusername, linkedin.com/in/yourusername.
+  5. Résumé: add a real resume.pdf file in the same folder as this file (search "PLACEHOLDER: RESUME").
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FCFCFB;
+    --surface: #F4F4F1;
+    --surface-hover: #EFEFEA;
+    --ink: #1B1D21;
+    --muted: #63676E;
+    --line: #E1E1DC;
+    --accent: #1F6F5C;
+    --accent-ink: #14493D;
+    --accent-soft: #E7EFEC;
+    --gutter: 2.5rem;
+    --content-max: 46rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .bg-texture {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity: 0.55;
+  }
+
+  a { color: var(--accent-ink); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent-ink);
+    margin: 0 0 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    transform-origin: left center;
+    transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+    transition: width 0.4s ease, background 0.4s ease;
+  }
+  .eyebrow.is-current {
+    color: var(--accent);
+    transform: scale(1.08);
+    text-shadow: 0 0 16px rgba(31, 111, 92, 0.35);
+  }
+  .eyebrow.is-current::before {
+    width: 28px;
+    background: var(--accent);
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem var(--gutter);
+    background: rgba(252, 252, 251, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-name {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--accent-ink); }
+  @media (max-width: 680px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- Layout / signature spine ---------- */
+  main {
+    max-width: calc(var(--content-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  .section {
+    position: relative;
+    padding: 4.5rem 0 4.5rem 2.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+  .node-marker {
+    position: absolute;
+    left: -4px;
+    top: 4.9rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  #hero .node-marker { top: 3.6rem; }
+  .node-marker.is-current {
+    transform: scale(1.7);
+    box-shadow: 0 0 0 5px var(--accent-soft), 0 0 16px 4px rgba(31, 111, 92, 0.55);
+  }
+
+  @media (max-width: 640px) {
+    .section { padding-left: 1.5rem; }
+    .node-marker { left: -4px; }
+  }
+
+  .spine-glow {
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    width: 4px;
+    height: 64px;
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+    box-shadow: 0 0 10px 2px rgba(31, 111, 92, 0.4), 0 0 24px 4px rgba(31, 111, 92, 0.18);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, top 0.08s linear;
+  }
+  .spine-glow.is-active { opacity: 1; }
+
+  /* ---------- Hero ---------- */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-avatar { order: -1; max-width: 11rem; }
+  }
+
+  .hero-name {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+  .hero-role {
+    font-size: 1.1rem;
+    color: var(--accent-ink);
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+  .hero-tagline {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 34rem;
+    margin: 0 0 2rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+  }
+  .btn-primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+  /* Avatar placeholder */
+  .hero-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .avatar-frame {
+    position: relative;
+    width: 100%;
+    max-width: 15rem;
+    aspect-ratio: 3 / 4;
+  }
+  .avatar-circle {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .avatar-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 21;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 94%);
+    mask-image: linear-gradient(to bottom, black 72%, transparent 94%);
+  }
+  .avatar-photo svg { display: block; width: 100%; height: 100%; }
+  .avatar-photo .ph-bg { fill: var(--surface-hover); }
+  .avatar-photo .ph-shape { fill: var(--line); }
+  /* When a real <img> replaces the placeholder svg, this keeps the same crop + fade behavior */
+  .avatar-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+
+  }
+  .avatar-caption {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .avatar-badge {
+    position: absolute;
+    top: -7%;
+    right: -12%;
+    width: 5.25rem;
+    height: 5.25rem;
+    z-index: 3;
+    animation: spin 22s linear infinite;
+  }
+  .avatar-badge svg { width: 100%; height: 100%; }
+  .avatar-badge .badge-ring { fill: var(--bg); stroke: var(--line); }
+  .avatar-badge .badge-dot { fill: var(--accent); }
+  .avatar-badge text {
+    font-family: "IBM Plex Mono", monospace;
+    fill: var(--accent-ink);
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @media (max-width: 720px) {
+    .avatar-badge { width: 4rem; height: 4rem; top: -5%; right: -6%; }
+  }
+
+  /* ---------- Summary ---------- */
+  .body-text {
+    max-width: var(--content-max);
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Stack / Toolkit carousel ---------- */
+  .toolkit-carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -1.25rem;
+    padding: 0.25rem 1.25rem;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 48px, black calc(100% - 48px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 48px, black calc(100% - 48px), transparent 100%);
+  }
+  @media (max-width: 640px) {
+    .toolkit-carousel {
+      margin: 0 -0.75rem;
+      padding: 0.25rem 0.75rem;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+    }
+  }
+  .stack-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .stack-track::-webkit-scrollbar { display: none; }
+  .stack-track.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+  .stack-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgba(27, 29, 33, 0.03);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    flex: 0 0 auto;
+    width: 15rem;
+  }
+  .stack-card:hover {
+    box-shadow: 0 6px 14px rgba(27, 29, 33, 0.05);
+    transform: translateY(-2px);
+  }
+  .stack-badge {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 0.72rem;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 0.35rem 0.5rem;
+    min-width: 2.75rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .stack-name { font-weight: 600; margin: 0 0 0.15rem; font-size: 0.95rem; }
+  .stack-desc { margin: 0; color: var(--muted); font-size: 0.88rem; }
+
+  /* ---------- Projects & Certifications ---------- */
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--surface);
+    position: relative;
+    box-shadow: 0 1px 2px rgba(27, 29, 33, 0.03);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-left-color 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: 0 6px 16px rgba(27, 29, 33, 0.06);
+    transform: translateY(-2px);
+    border-left-color: var(--accent);
+  }
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .placeholder-tag {
+    flex-shrink: 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+  }
+  .card-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .card-desc { margin: 0 0 1rem; color: var(--muted); font-size: 0.92rem; }
+  .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .cert-card { display: flex; flex-direction: column; height: 100%; }
+  .cert-card .card-head { margin-bottom: 0.75rem; }
+  .cert-info h3 { margin: 0 0 0.25rem; font-size: 1rem; font-weight: 600; }
+  .cert-meta { margin: 0 0 1rem; color: var(--muted); font-size: 0.85rem; }
+  .cert-link { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; text-decoration: none; margin-top: auto; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1rem;
+  }
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgba(27, 29, 33, 0.03);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+  .contact-card:hover { border-color: var(--accent); background: var(--surface-hover); transform: translateY(-2px); }
+  .contact-icon {
+    width: 20px; height: 20px; flex-shrink: 0; color: var(--accent-ink);
+  }
+  .contact-label { font-weight: 600; font-size: 0.92rem; margin: 0 0 0.1rem; }
+  .contact-value { margin: 0; color: var(--muted); font-size: 0.82rem; font-family: "IBM Plex Mono", monospace; word-break: break-all; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 2.5rem var(--gutter) 3rem;
+    text-align: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Nav-triggered rise ----------
+     Same easing family as .eyebrow (smooth, subtle) — when a header nav link
+     jumps to a section, its contents lift up + fade in on arrival. */
+  .section {
+    scroll-margin-top: calc(var(--nav-h, 68px) + 14px);
+  }
+  .rise-item {
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rise-item.rise-priming {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: none;
+  }
+</style>
+</head>
+<body>
+<div class="bg-texture" aria-hidden="true"></div>
+<div class="spine-glow" id="spineGlow" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#hero" class="nav-name">RYLAN.BERNARDINO</a>
+  <ul class="nav-links">
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#stack">Tools</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<main>
+
+  <section id="hero" class="section reveal">
+    <div class="node-marker"></div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-name">Rylan R. Bernardino</h1>
+        <p class="hero-role">AI Automation Specialist</p>
+        <p class="hero-tagline">I design n8n workflows that turn repetitive manual work into systems that run themselves — with a web development background that lets me build the interfaces and integrations around them.</p>
+        <div class="hero-ctas">
+          <!-- PLACEHOLDER: RESUME — add resume.pdf next to this file -->
+          <a class="btn btn-primary" href="Bernardino-CV.pdf" download>
+            <svg class="contact-icon" style="width:14px;height:14px;color:#fff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Download résumé
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-frame">
+          <div class="avatar-circle" aria-hidden="true"></div>
+          <div class="avatar-photo" aria-label="Photo placeholder">
+            <img src="Picture.png" alt="Picture" z-index: 100;>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary" class="section reveal">
+    <div class="node-marker"></div>
+    <p class="eyebrow">Summary</p>
+    <p class="body-text">I'm a freelance AI Automation Specialist who builds n8n workflows that turn repetitive manual work into systems that run themselves. My background in web development means automation rarely stops at the workflow canvas — I build the interfaces, APIs, and integrations around it when a project calls for one. Right now I'm deepening my Python and applied-AI skills as I work toward becoming an AI engineer, using automation as the foundation everything else is built on.</p>
+  </section>
+
+  <section id="stack" class="section reveal">
+    <div class="node-marker"></div>
+    <p class="eyebrow">Tech Stack</p>
+    <div class="toolkit-carousel" role="region" aria-label="Toolkit skills, scrollable carousel">
+    <div class="stack-track" id="stackTrack">
+      <div class="stack-card">
+        <span class="stack-badge">n8n</span>
+        <div>
+          <p class="stack-name">n8n</p>
+          <p class="stack-desc">Designing and running end-to-end automation workflows</p>
+        </div>
+      </div>
+      <div class="stack-card">
+        <span class="stack-badge">DKR</span>
+        <div>
+          <p class="stack-name">Docker</p>
+          <p class="stack-desc">Containerizing workflows and services for consistent deployment</p>
+        </div>
+      </div>
+      <div class="stack-card">
+        <span class="stack-badge">PY</span>
+        <div>
+          <p class="stack-name">Python</p>
+          <p class="stack-desc">Scripting, APIs, and data processing behind the workflows</p>
+        </div>
+      </div>
+      <div class="stack-card">
+        <span class="stack-badge">JS</span>
+        <div>
+          <p class="stack-name">JavaScript</p>
+          <p class="stack-desc">Custom functions in n8n and interactive front-ends</p>
+        </div>
+      </div>
+      <div class="stack-card">
+        <span class="stack-badge">&lt;/&gt;</span>
+        <div>
+          <p class="stack-name">HTML</p>
+          <p class="stack-desc">Structuring clean, semantic pages</p>
+        </div>
+      </div>
+      <div class="stack-card">
+        <span class="stack-badge">{ }</span>
+        <div>
+          <p class="stack-name">CSS</p>
+          <p class="stack-desc">Styling responsive, accessible interfaces</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="work" class="section reveal">
+    <div class="node-marker"></div>
+    <p class="eyebrow">Experience</p>
+    <div class="card-grid">
+
+      <!-- PLACEHOLDER: PROJECT 1 -->
+             <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Applicant Screening & Auto-Email System — OneSource
+</h3>
+        </div>
+        <p class="card-desc">Built a self-hosted n8n automation for OneSource, a manpower agency, that evaluates job applicants the moment they submit an intake form. The workflow scores each response against role requirements, then automatically routes and emails applicants into three outcomes — qualified, rejected, and needs review — cutting manual screening out of the initial triage step entirely. Runs in Docker on the company's own infrastructure, keeping applicant data on-premises.</p>
+        <div class="tag-row">
+          <span class="tag">n8n</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Javascript</span>
+          <span class="tag">Self-hosted</span>
+          <span class="tag">Webhook</span>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER: PROJECT 2 -->
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Automated Lead Intake → CRM Sync</h3>
+        </div>
+        <p class="card-desc">Built an n8n workflow that captures leads from a website contact form and Facebook Lead Ads, enriches each one with company and job-title data via Clearbit, then pushes clean, deduplicated records straight into HubSpot. Replaced a manual copy-paste process the sales team was doing from spreadsheets, cutting lead response time from same-day to under 5 minutes and eliminating duplicate contact entries.</p>
+        <div class="tag-row">
+          <span class="tag">n8n</span>
+          <span class="tag">Webhook</span>
+          <span class="tag">API</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="section reveal">
+    <div class="node-marker"></div>
+    <p class="eyebrow">Certifications</p>
+    <div class="cert-grid">
+
+      <!-- PLACEHOLDER: CERT 1 -->  
+      <div class="card cert-card">
+        <div class="card-head">
+          <div class="cert-info">
+            <h3>NCII - Computer Systems Servicing</h3>
+            <p class="cert-meta">TESDA · 2024</p>
+          </div>
+        </div>
+        <a class="cert-link" href="#">View credential →</a>
+      </div>
+
+      <!-- PLACEHOLDER: CERT 2 -->
+      <div class="card cert-card">
+        <div class="card-head">
+          <div class="cert-info">
+            <h3>HTML Essentials</h3>
+            <p class="cert-meta">Cisco · 2026</p>
+          </div>
+        </div>
+        <a class="cert-link" href="#">View credential →</a>
+      </div>
+
+      <!-- PLACEHOLDER: CERT 3 -->
+      <div class="card cert-card">
+        <div class="card-head">
+          <div class="cert-info">
+            <h3>CSS Esentials</h3>
+            <p class="cert-meta">Cisco · 2026</p>
+          </div>
+        </div>
+        <a class="cert-link" href="#">View credential →</a>
+      </div>
+
+      <div class="card cert-card">
+        <div class="card-head">
+          <div class="cert-info">
+            <h3>Python 1 Esentials</h3>
+            <p class="cert-meta">Cisco · 2026</p>
+          </div>
+        </div>
+        <a class="cert-link" href="#">View credential →</a>
+      </div>
+      
+      <div class="card cert-card">
+        <div class="card-head">
+          <div class="cert-info">
+            <h3>Python 2 Esentials</h3>
+            <p class="cert-meta">Cisco · 2026</p>
+          </div>
+        </div>
+        <a class="cert-link" href="#">View credential →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="section reveal">
+    <div class="node-marker"></div>
+    <p class="eyebrow">Contacts</p>
+    <div class="contact-grid">
+
+      <a class="contact-card" href="mailto:rylanbernardino5@gmail.com">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div>
+          <p class="contact-label">Email</p>
+          <p class="contact-value">rylanbernardino5@gmail.com</p>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://github.com/Rylan1225" target="_blank" rel="noopener">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 17l6-10"/></svg>
+        <div>
+          <p class="contact-label">GitHub</p>
+          <p class="contact-value">github.com/Rylan1225</p>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://www.linkedin.com/in/rylan-bernardino-2519152b3/" target="_blank" rel="noopener">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8v8M8 8h.01M12 16v-4a2 2 0 0 1 4 0v4"/></svg>
+        <div>
+          <p class="contact-label">LinkedIn</p>
+          <p class="contact-value">linkedin.com/in/rylan-bernardino-2519152b3</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span id="year"></span> · Rylan R. Bernardino
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Keep the sticky nav's real height in sync so anchor jumps land just below it.
+  const navEl = document.querySelector('.nav');
+  function syncNavHeight() {
+    if (navEl) document.documentElement.style.setProperty('--nav-h', navEl.offsetHeight + 'px');
+  }
+  syncNavHeight();
+  window.addEventListener('resize', syncNavHeight);
+
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (prefersReduced) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // ---- Scroll-following light on the spine ----
+  const glow = document.getElementById('spineGlow');
+  const firstSection = document.querySelector('.section');
+  const allSections = document.querySelectorAll('.section');
+  const NAV_CLEARANCE = 76;
+  const BOTTOM_CLEARANCE = 48;
+  let currentGlowTop = NAV_CLEARANCE;
+
+  function positionGlowX() {
+    if (!firstSection) return;
+    const rect = firstSection.getBoundingClientRect();
+    glow.style.left = rect.left + 'px';
+  }
+
+  function positionGlowY() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+    const travel = Math.max(0, window.innerHeight - NAV_CLEARANCE - BOTTOM_CLEARANCE);
+    currentGlowTop = NAV_CLEARANCE + pct * travel;
+    glow.style.top = currentGlowTop + 'px';
+  }
+
+  function updateMilestones() {
+    let current = null;
+    allSections.forEach(section => {
+      const marker = section.querySelector('.node-marker');
+      if (!marker) return;
+      const markerTop = marker.getBoundingClientRect().top;
+      if (markerTop <= currentGlowTop + 6) {
+        current = section;
+      }
+    });
+    if (!current && allSections.length) current = allSections[0];
+
+    allSections.forEach(section => {
+      const marker = section.querySelector('.node-marker');
+      const eyebrow = section.querySelector('.eyebrow');
+      const isCurrent = section === current;
+      if (marker) marker.classList.toggle('is-current', isCurrent);
+      if (eyebrow) eyebrow.classList.toggle('is-current', isCurrent);
+    });
+  }
+
+  let tickingScroll = false;
+  function onScroll() {
+    if (!tickingScroll) {
+      requestAnimationFrame(() => {
+        positionGlowY();
+        updateMilestones();
+        tickingScroll = false;
+      });
+      tickingScroll = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { positionGlowX(); positionGlowY(); updateMilestones(); });
+
+  positionGlowX();
+  positionGlowY();
+  updateMilestones();
+  requestAnimationFrame(() => glow.classList.add('is-active'));
+
+  // ---- Nav-click rise: contents lift up + fade in when a header link jumps to a section ----
+  (function initNavRise() {
+    const navAnchors = document.querySelectorAll('.nav-name, .nav-links a');
+    // Grid containers get "unwrapped" so their individual items rise as a cascade
+    // instead of the whole grid moving as one flat block.
+    const unwrapClasses = ['hero-grid', 'card-grid', 'cert-grid', 'contact-grid'];
+
+    function getRiseItems(section) {
+      const items = [];
+      Array.from(section.children).forEach(child => {
+        if (child.classList.contains('node-marker')) return;
+        if (unwrapClasses.some(cls => child.classList.contains(cls))) {
+          Array.from(child.children).forEach(grandchild => items.push(grandchild));
+        } else {
+          items.push(child);
+        }
+      });
+      return items;
+    }
+
+    function playRise(section) {
+      if (prefersReduced || !section) return;
+      const items = getRiseItems(section);
+      if (!items.length) return;
+
+      // Snap everything to the "before" state with no transition...
+      items.forEach(el => {
+        el.classList.add('rise-priming');
+        el.style.transitionDelay = '';
+      });
+      // ...force layout so the browser registers that state...
+      void section.offsetHeight;
+      // ...then release each item into place with a light stagger.
+      requestAnimationFrame(() => {
+        items.forEach((el, i) => {
+          el.style.transitionDelay = Math.min(i * 55, 330) + 'ms';
+          el.classList.remove('rise-priming');
+        });
+        const cleanupDelay = Math.min((items.length - 1) * 55, 330) + 650;
+        setTimeout(() => {
+          items.forEach(el => { el.style.transitionDelay = ''; });
+        }, cleanupDelay);
+      });
+    }
+
+    // Waits until the page actually stops scrolling, then fires the callback.
+    // (This matters: on a tall page the scroll can take longer than the rise
+    // transition itself, so triggering the rise at click-time made it finish
+    // off-screen before you ever saw it.)
+    function whenScrollSettles(callback) {
+      if (prefersReduced) { callback(); return; }
+      let lastY = window.scrollY;
+      let stableFrames = 0;
+      function step() {
+        const y = window.scrollY;
+        if (Math.abs(y - lastY) < 0.5) {
+          stableFrames++;
+        } else {
+          stableFrames = 0;
+          lastY = y;
+        }
+        if (stableFrames >= 6) {
+          callback();
+        } else {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    navAnchors.forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const targetId = anchor.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        const navH = navEl ? navEl.offsetHeight : 0;
+        const destY = target.getBoundingClientRect().top + window.pageYOffset - navH - 14;
+        if (history.pushState) history.pushState(null, '', targetId);
+        window.scrollTo({ top: Math.max(destY, 0), behavior: prefersReduced ? 'auto' : 'smooth' });
+
+        // If we're basically already there (e.g. clicking the current section),
+        // scroll settles almost immediately and the rise plays right away.
+        whenScrollSettles(() => playRise(target));
+      });
+    });
+  })();
+
+
+  (function initToolkitCarousel() {
+    const track = document.getElementById('stackTrack');
+    if (!track) return;
+
+    // Duplicate the cards once so the loop can wrap seamlessly.
+    const originalCards = Array.from(track.children);
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a, button').forEach(el => el.setAttribute('tabindex', '-1'));
+      track.appendChild(clone);
+    });
+
+    const autoScrollSpeed = 0.6; // px per frame, slow but clearly visible left-to-right drift
+    let isInteracting = false;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let rafId = null;
+
+    function halfWidth() {
+      return track.scrollWidth / 2;
+    }
+
+    function wrapScroll(value) {
+      const half = halfWidth();
+      if (half <= 0) return value;
+      return ((value % half) + half) % half;
+    }
+
+    function tick() {
+      if (!isInteracting) {
+        track.scrollLeft = wrapScroll(track.scrollLeft + autoScrollSpeed);
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+    rafId = requestAnimationFrame(tick);
+
+    track.addEventListener('mouseenter', () => { isInteracting = true; });
+    track.addEventListener('mouseleave', () => {
+      if (!isDragging) isInteracting = false;
+    });
+    track.addEventListener('focusin', () => { isInteracting = true; });
+    track.addEventListener('focusout', () => { isInteracting = false; });
+
+    // Let hovering + any scroll gesture (mouse wheel or trackpad) move the carousel horizontally.
+    track.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      track.scrollLeft = wrapScroll(track.scrollLeft + delta);
+    }, { passive: false });
+
+    // Drag-to-scroll for mouse/touch pointers.
+    track.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      isInteracting = true;
+      track.classList.add('is-dragging');
+      dragStartX = e.clientX;
+      dragStartScroll = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - dragStartX;
+      track.scrollLeft = wrapScroll(dragStartScroll - dx);
+    });
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      isInteracting = track.matches(':hover');
+    }
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+  })();
+</script>
+
+</body>
+</html>
