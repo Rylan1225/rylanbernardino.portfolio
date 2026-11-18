@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-canvas font-sans text-base leading-[1.6] text-ink antialiased;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline outline-2 outline-offset-[3px] outline-accent;
+  }
+}
+
+@layer utilities {
+  .fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 94%);
+    mask-image: linear-gradient(to bottom, black 72%, transparent 94%);
+  }
+  .fade-sides {
+    --fade: 48px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black var(--fade), black calc(100% - var(--fade)), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black var(--fade), black calc(100% - var(--fade)), transparent 100%);
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
